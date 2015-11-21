@@ -1,0 +1,1 @@
+XCOPY "mydev-setup.sh" "C:\MinGW\msys\1.0\home\user\mydev-setup.sh" /S /D /Y
