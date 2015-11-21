@@ -65,6 +65,6 @@ cd curl-7.45.0
 cd ..
 
 # 安裝 google protocol buffers
-tar xvfz $DLPATH//protobuf-2.6.1.tar.gz
+tar xvfz $DLPATH/protobuf-2.6.1.tar.gz
 cd protobuf-2.6.1
 cd ..
