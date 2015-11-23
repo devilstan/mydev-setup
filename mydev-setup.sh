@@ -2,12 +2,15 @@
 # Lib install script for MinGW.
 #
 # - zlib-1.2.8         壓縮
-# - openSSL-1.0.2d     加解密
+# - openSSL-1.0.2d     加解密 https://www.openssl.org/
 # - libpng-1.6.19      png
-# - protobuf-2.6.1     google protocol buffers
-# - qrencode-3.4.4     QR-Code 編碼
+# - protobuf-2.6.1     google protocol buffers https://developers.google.com/protocol-buffers/docs/downloads
+# - qrencode-3.4.4     QR-Code 編碼freetype-2.6.1 https://fukuchi.org/works/qrencode/
+# - freetype-2.6.1     text-2-image
 #
  
+# build by cmake, not here
+# - opencv-3.0         影像處理
  
 #
 # Config
@@ -15,8 +18,7 @@
 PREFIX=/usr
 DLPATH=~/mydev_tmp
 # /usr 對應到 windows path = "C:\MinGW\msys\1.0"
-#LIBPNG_VERSION=v9
- 
+
  
 #
 # Install msys tools.
@@ -101,6 +103,16 @@ tar xvfz $DLPATH/qrencode-3.4.4.tar.gz
 cd qrencode-3.4.4
 ./autogen.sh
 ./configure --prefix=/mingw/local/qrencode --with-tools=no
+make
+make install
+cd ..
+
+
+# 安裝 freetype2
+wget -v -N -a mydev-setup.log -P $DLPATH http://sourceforge.net/projects/freetype/files/freetype2/2.6.1/freetype-2.6.1.tar.gz
+tar xvfz $DLPATH/freetype-2.6.1.tar.gz
+cd freetype-2.6.1
+./configure --prefix=/mingw/local/freetype2 --enable-static
 make
 make install
 cd ..
