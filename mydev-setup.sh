@@ -1,7 +1,11 @@
 #
-# libjpeg install script for MinGW.
+# Lib install script for MinGW.
 #
-# - libjpeg V9
+# - zlib-1.2.8         壓縮
+# - openSSL-1.0.2d     加解密
+# - libpng-1.6.19      png
+# - protobuf-2.6.1     google protocol buffers
+# - qrencode-3.4.4     QR-Code 編碼
 #
  
  
