@@ -10,7 +10,7 @@
 #
  
 # build by cmake, not here
-# - opencv-3.0         影像處理
+# - opencv-2.4.9       影像處理(暫時應用, 因為 merge 影像不需要用到 opencv 就可以做到了)
  
 #
 # Config
@@ -44,7 +44,7 @@ wget -v -N -o mydev-setup.log -P $DLPATH http://zlib.net/zlib-1.2.8.tar.gz
 wget -v -N -o mydev-setup.log -P $DLPATH http://www.openssl.org/source/openssl-1.0.2d.tar.gz
 # PNG工具 (用最新的)
 wget -v -N -a mydev-setup.log -P $DLPATH http://download.sourceforge.net/libpng/libpng-1.6.19.tar.gz
-# 檔案傳輸協定
+# 檔案傳輸協定 (下載工具, 非專案必要函式庫, 使用 win32 安裝包就好)
 #wget -v -N -a mydev-setup.log -P $DLPATH http://curl.haxx.se/download/curl-7.45.0.tar.gz
 
 # msys 開發工具安裝
@@ -116,3 +116,10 @@ cd freetype-2.6.1
 make
 make install
 cd ..
+
+# 安裝 zbar QR-Code 解碼工具
+curl -L -k -o $DLPATH/zbar-master.zip https://github.com/devilstan/ZBar/archive/master.zip
+./configure --prefix=/mingw/local/zbar --enable-static --without-jpeg --without-python --without-gtk --without-qt --without-imagemagick
+# make 時，如果遇到 iconv 庫找不到的編譯錯誤訊息，可利用 mingw-get 下載 MinGW Autotools: libiconv (class:dev)
+make
+make install
